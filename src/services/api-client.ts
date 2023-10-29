@@ -6,4 +6,4 @@ export default axios.create({
     key: 'f5b56fb4fcdc43df8c293b0c1d550edf',
   },
 });
-// TODO Understand the layout 
+// TODO Understand the layout

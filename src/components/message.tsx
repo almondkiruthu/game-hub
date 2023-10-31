@@ -7,6 +7,7 @@ const Message = () => {
   return (
     <div>
       <h1>Let's go {counter}</h1>
+      {/* Fix the counter */}
       <Button onClick={setCounter(counter++)}>run</Button>
     </div>
   );

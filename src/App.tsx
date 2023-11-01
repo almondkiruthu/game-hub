@@ -6,7 +6,7 @@ const App = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <ThemeProvider defaultTheme='light' storageKey='vite-ui-theme'>
-        <div className='h-full'>
+        <div className='h-full font-inter'>
           <div className='inset-y-0 w-full z-50 md:pl-56 h-[5rem]'>
             <Navbar />
           </div>

@@ -1,13 +1,9 @@
-import Message from './components/navbar';
-import { Button } from './components/ui/button';
+import Navbar from './components/navbar';
 
 const App = () => {
   return (
     <>
-      <div>
-        <Button>Add me</Button>
-      </div>
-      <Message />
+      <Navbar />
     </>
   );
 };

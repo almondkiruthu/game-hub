@@ -1,4 +1,4 @@
-import Message from './components/message';
+import Message from './components/navbar';
 import { Button } from './components/ui/button';
 
 const App = () => {

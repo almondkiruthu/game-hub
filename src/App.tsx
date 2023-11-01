@@ -7,7 +7,7 @@ const App = ({ children }: { children: React.ReactNode }) => {
     <>
       <ThemeProvider defaultTheme='light' storageKey='vite-ui-theme'>
         <div className='h-full'>
-          <div className='inset-y-0 w-full z-50 md:pl-56'>
+          <div className='inset-y-0 w-full z-50 md:pl-56 h-[5rem]'>
             <Navbar />
           </div>
           <div className='flex-col hidden md:flex h-full fixed inset-y-0 z-50 w-56'>

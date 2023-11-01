@@ -1,7 +1,11 @@
-const NavbarRoutes = () => {
-  return <div className='flex ml-auto'>
+import { ModeToggle } from "./mode-toogle";
 
-  </div>;
+const NavbarRoutes = () => {
+  return (
+    <div className='flex ml-auto'>
+      <ModeToggle />
+    </div>
+  );
 };
 
 export default NavbarRoutes;

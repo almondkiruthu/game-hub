@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <div
       className='p-4 border-b h-full items-center
-    bg-white shadow-sm flex'
+  shadow-sm flex gap-x-2'
     >
       <NavbarRoutes />
       <MobileSidebar />

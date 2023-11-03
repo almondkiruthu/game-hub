@@ -1,4 +1,5 @@
 import { Game } from '@/hooks/use-games';
+import PlatformIcon from './platform-icon-list';
 
 interface GameCardProps {
   game: Game;
@@ -18,6 +19,9 @@ const GameCard = ({ game }: GameCardProps) => {
           <div className='text-lg md:text-xl font-medium group-hover:text-sky-700 transition line-clamp-2'>
             {game.name}
           </div>
+          <PlatformIcon
+            platforms={game.parent_platforms.map((p) => p.platform)}
+          />
         </div>
       </div>
     </div>

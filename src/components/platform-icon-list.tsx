@@ -32,7 +32,7 @@ const PlatformIcon = ({ platforms = [] }: PlatformIconListProps) => {
   };
   return (
     <>
-      <div className='flex gap-x-2 pt-2'>
+      <div className='flex gap-x-2 pt-2 text-gray-500'>
         {platforms.map((platform) => (
           <IconItem icon={iconMap[platform.slug]} />
         ))}

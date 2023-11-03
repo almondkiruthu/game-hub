@@ -8,13 +8,13 @@ const App = () => {
     <>
       <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
         <div className='h-full font-inter'>
-          <div className='inset-y-0 w-full z-50 md:pl-56 h-[5rem]'>
+          <div className='inset-y-0 w-full z-[50] md:pl-56 h-[5rem] fixed'>
             <Navbar />
           </div>
           <div className='flex-col hidden md:flex h-full fixed inset-y-0 z-50 w-56'>
             <Sidebar />
           </div>
-          <main className='h-full md:pl-60 pt-5'>
+          <main className='h-full md:pl-60 pt-[5.5rem]'>
             <GameGrid />
           </main>
         </div>

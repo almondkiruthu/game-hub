@@ -1,3 +1,4 @@
+import GameGrid from './components/game-grid';
 import Navbar from './components/navbar';
 import Sidebar from './components/navbarComponents/sidebar';
 import { ThemeProvider } from './components/theme-provider';
@@ -13,8 +14,8 @@ const App = () => {
           <div className='flex-col hidden md:flex h-full fixed inset-y-0 z-50 w-56'>
             <Sidebar />
           </div>
-          <main className='h-full'>
-            
+          <main className='h-full md:pl-60 pt-5'>
+            <GameGrid />
           </main>
         </div>
       </ThemeProvider>

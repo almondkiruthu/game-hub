@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
+import apiClient from '../services/api-client.ts';
 interface Game {
   id: number;
   name: string;
@@ -14,12 +14,8 @@ const GameGrid = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    axios
-      .get<FetchGamesResponse>('https://api.rawg.io/api/xgames', {
-        params: {
-          key: 'f5b56fb4fcdc43df8c293b0c1d550edf',
-        },
-      })
+    apiClient
+      .get<FetchGamesResponse>('/games')
       .then((res) => {
         setGames(res.data.results);
       })

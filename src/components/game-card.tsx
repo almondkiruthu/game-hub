@@ -16,7 +16,7 @@ const GameCard = ({ game }: GameCardProps) => {
           />
         </div>
         <div className='flex flex-col pt-2'>
-          <div className='text-lg md:text-xl font-medium group-hover:text-purple-400 transition line-clamp-2'>
+          <div className='text-lg md:text-xl font-bold group-hover:text-purple-400 transition line-clamp-2'>
             {game.name}
           </div>
           <PlatformIcon

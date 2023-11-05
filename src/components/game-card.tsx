@@ -20,7 +20,7 @@ const GameCard = ({ game }: GameCardProps) => {
           <div className='text-lg md:text-xl font-bold group-hover:text-purple-400 transition line-clamp-2'>
             {game.name}
           </div>
-          <div className='flex items-center justify-between pt-2'>
+          <div className='flex items-center justify-between pt-1'>
             <PlatformIcon
               platforms={game.parent_platforms.map((p) => p.platform)}
             />

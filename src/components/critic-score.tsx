@@ -16,9 +16,9 @@ const CriticScore = ({ score }: CriticScoreProps) => {
         variant={'outline'}
         className={cn(
           '',
-          isHighlyRated() && 'bg-green-700 text-slate-50',
-          isMiddleRated() && 'bg-yellow-700',
-          isLowlyRated() && 'bg-red-700'
+          isHighlyRated() && 'text-green-700',
+          isMiddleRated() && 'text-yellow-700',
+          isLowlyRated() && 'text-red-700'
         )}
       >
         {score}

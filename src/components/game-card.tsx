@@ -1,6 +1,7 @@
 import { Game } from '@/hooks/use-games';
 import PlatformIcon from './platform-icon-list';
 import CriticScore from './critic-score';
+import getCroppedImageUrl from '@/services/image-url';
 
 interface GameCardProps {
   game: Game;
@@ -13,7 +14,7 @@ const GameCard = ({ game }: GameCardProps) => {
           <img
             className='object-cover'
             alt={game.name}
-            src={game.background_image}
+            src={getCroppedImageUrl(game.background_image)}
           />
         </div>
         <div className='flex flex-col pt-2'>

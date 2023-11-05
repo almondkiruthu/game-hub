@@ -5,7 +5,7 @@ const SideBarRoutes = () => {
   const { data } = useData();
   return (
     <div className='flex flex-col w-full'>
-      <div className='mx-auto'>
+      <div className='ml-2 md:ml-2 md:mx-auto'>
         {data.map((genre) => (
           <div key={genre.id} className='flex items-center gap-x-2 mt-3'>
             <img

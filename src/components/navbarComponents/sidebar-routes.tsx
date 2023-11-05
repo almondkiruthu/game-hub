@@ -1,11 +1,11 @@
-import useGenres from '@/hooks/use-genres';
+import useData from '@/hooks/use-genres';
 
 const SideBarRoutes = () => {
-  const { genres } = useGenres();
+  const { data } = useData();
   return (
     <div className='flex flex-col w-full'>
       <ul>
-        {genres.map((genre) => (
+        {data.map((genre) => (
           <li key={genre.id}>{genre.name}</li>
         ))}
       </ul>

@@ -1,10 +1,14 @@
 import useData from '@/hooks/use-genres';
 import getCroppedImageUrl from '@/services/image-url';
 import GenreCardSkeleton from '../genre-card-skeleton';
+import toast from 'react-hot-toast';
 
 const SideBarRoutes = () => {
-  const { data, isLoading } = useData();
+  const { data, isLoading, error } = useData();
   const genreSkeletons = Array.from({ length: 19 }).map((_, i) => i);
+  if (error) {
+    toast.error('Failed to fetch genres');
+  }
   return (
     <div className='flex flex-col w-full'>
       <div className='ml-2 md:ml-2 md:mx-auto'>

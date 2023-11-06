@@ -1,3 +1,4 @@
+import { Toaster } from 'react-hot-toast';
 import GameGrid from './components/game-grid';
 import Navbar from './components/navbar';
 import Sidebar from './components/navbarComponents/sidebar';
@@ -16,6 +17,7 @@ const App = () => {
           </div>
           <main className='h-full md:pl-60 pt-[5.5rem]'>
             <GameGrid />
+            <Toaster position='bottom-right' reverseOrder={true} />
           </main>
         </div>
       </ThemeProvider>

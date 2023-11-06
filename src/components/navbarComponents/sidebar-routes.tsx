@@ -1,11 +1,17 @@
 import useData from '@/hooks/use-genres';
 import getCroppedImageUrl from '@/services/image-url';
+import GenreCardSkeleton from '../genre-card-skeleton';
 
 const SideBarRoutes = () => {
-  const { data } = useData();
+  const { data, isLoading } = useData();
+  const genreSkeletons = Array.from({ length: 19 }).map((_, i) => i);
   return (
     <div className='flex flex-col w-full'>
       <div className='ml-2 md:ml-2 md:mx-auto'>
+        {isLoading &&
+          genreSkeletons.map((Skeleton) => (
+            <GenreCardSkeleton key={Skeleton} />
+          ))}
         {data.map((genre) => (
           <div key={genre.id} className='flex items-center gap-x-2 mt-3'>
             <img

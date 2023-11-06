@@ -1,9 +1,14 @@
 import useGames from '@/hooks/use-games.ts';
 import GameCard from './game-card';
 import GameCardSkeleton from './game-card-skeleton';
+import { Genre } from '@/hooks/use-genres';
 
-const GameGrid = () => {
-  const { error, data, isLoading } = useGames();
+interface GameGridProps {
+  selectedGenre: Genre | null;
+}
+
+const GameGrid = ({ selectedGenre }: GameGridProps) => {
+  const { error, data, isLoading } = useGames(selectedGenre);
   const skeletons = Array.from({ length: 20 }, (_, i) => i);
   return (
     <>

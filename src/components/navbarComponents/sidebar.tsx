@@ -1,33 +1,16 @@
-// import SideBarRoutes from './sidebar-routes';
-
-// const Sidebar = () => {
-//   return (
-//     <div className='h-full border-r flex flex-col overflow-y-auto shadow-sm bg-background'>
-//       <div className='flex flex-col w-full'>
-//         <div className='flex items-center flex-shrink-0 md:hidden mb-4 pl-4 border-b shadow-sm'>
-//           <p className='mt-5 font-extrabold text-muted-foreground pb-4 w-full'>
-//             GAME HUB
-//           </p>
-//         </div>
-//         <SideBarRoutes />
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Sidebar;
-
 import useData, { Genre } from '@/hooks/use-genres';
 import getCroppedImageUrl from '@/services/image-url';
 import GenreCardSkeleton from '../genre-card-skeleton';
 import { Button } from '../ui/button';
 import toast from 'react-hot-toast';
+import { cn } from '@/lib/utils';
 
 interface SidebarProps {
   onSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-const Sidebar = ({ onSelectGenre }: SidebarProps) => {
+const Sidebar = ({ onSelectGenre, selectedGenre }: SidebarProps) => {
   const { data, isLoading, error } = useData();
   const genreSkeletons = Array.from({ length: 19 }).map((_, i) => i);
 
@@ -54,7 +37,10 @@ const Sidebar = ({ onSelectGenre }: SidebarProps) => {
                 onClick={() => onSelectGenre(genre)}
                 variant='link'
                 key={genre.id}
-                className='flex items-center gap-x-2 mt-3'
+                className={cn(
+                  'flex items-center gap-x-2 mt-3',
+                  selectedGenre?.id === genre.id ? 'font-bold' : 'font-normal'
+                )}
               >
                 <img
                   className='w-10 h-10 rounded-lg'

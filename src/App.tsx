@@ -16,7 +16,10 @@ const App = () => {
             <Navbar />
           </div>
           <div className='flex-col hidden md:flex h-full fixed inset-y-0 z-50 w-56'>
-            <Sidebar selectedGenre={} onSelectGenre={(genre) => setSelectedGenre(genre)} />
+            <Sidebar
+              selectedGenre={selectedGenre}
+              onSelectGenre={(genre) => setSelectedGenre(genre)}
+            />
           </div>
           <main className='h-full md:pl-60 pt-[5.5rem]'>
             <GameGrid selectedGenre={selectedGenre} />

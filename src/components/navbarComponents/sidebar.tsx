@@ -39,14 +39,25 @@ const Sidebar = ({ onSelectGenre, selectedGenre }: SidebarProps) => {
                 key={genre.id}
                 className={cn(
                   'flex items-center gap-x-2 mt-3',
-                  selectedGenre?.id === genre.id ? 'font-bold' : 'font-normal'
+                  selectedGenre?.id === genre.id
+                    ? 'font-bold text-purple-400'
+                    : 'font-normal'
                 )}
               >
                 <img
                   className='w-10 h-10 rounded-lg'
                   src={getCroppedImageUrl(genre.image_background)}
                 />
-                <p className='text-sm text-muted-foreground'>{genre.name}</p>
+                <p
+                  className={cn(
+                    'text-sm text-muted-foreground',
+                    selectedGenre?.id === genre.id
+                      ? 'font-bold text-purple-400'
+                      : 'font-normal'
+                  )}
+                >
+                  {genre.name}
+                </p>
               </Button>
             ))}
           </div>

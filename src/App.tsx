@@ -8,11 +8,13 @@ import { Genre } from './hooks/use-genres';
 import PlatformSelector from './components/platform-selector';
 import { Platform } from './hooks/use-games';
 
+export interface GameQuery {
+  genre: Genre | null;
+  platform: Platform | null;
+}
+
 const App = () => {
-  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
-  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
-    null
-  );
+  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
   return (
     <>
       <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
@@ -22,19 +24,18 @@ const App = () => {
           </div>
           <div className='flex-col hidden md:flex h-full fixed inset-y-0 z-50 w-56'>
             <Sidebar
-              selectedGenre={selectedGenre}
-              onSelectGenre={(genre) => setSelectedGenre(genre)}
+              selectedGenre={gameQuery.genre}
+              onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
             />
           </div>
           <main className='h-full md:pl-60 pt-[5.5rem]'>
             <PlatformSelector
-              onSelectPlatform={(platform) => setSelectedPlatform(platform)}
-              selectedPlatform={selectedPlatform}
+              onSelectPlatform={(platform) =>
+                setGameQuery({ ...gameQuery, platform })
+              }
+              selectedPlatform={gameQuery.platform}
             />
-            <GameGrid
-              selectedGenre={selectedGenre}
-              selectedPlatform={selectedPlatform}
-            />
+            <GameGrid gameQuery={gameQuery} />
             <Toaster position='bottom-right' reverseOrder={true} />
           </main>
         </div>

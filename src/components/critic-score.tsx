@@ -6,8 +6,8 @@ interface CriticScoreProps {
 }
 
 const CriticScore = ({ score }: CriticScoreProps) => {
-  const isHighlyRated = () => score > 75;
-  const isMiddleRated = () => score > 60 && score < 75;
+  const isHighlyRated = () => score >= 75;
+  const isMiddleRated = () => score >= 60 && score < 75;
   const isLowlyRated = () => score < 60;
 
   return (

@@ -2,7 +2,6 @@ import useGames from '@/hooks/use-games.ts';
 import GameCard from './game-card';
 import GameCardSkeleton from './game-card-skeleton';
 import { Genre } from '@/hooks/use-genres';
-import PlatformSelector from './platform-selector';
 
 interface GameGridProps {
   selectedGenre: Genre | null;

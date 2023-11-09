@@ -1,17 +1,18 @@
+import usePlatforms from '@/hooks/use-platforms';
 import {
   Menubar,
   MenubarContent,
   MenubarItem,
   MenubarMenu,
-  MenubarSeparator,
-  MenubarShortcut,
   MenubarTrigger,
 } from '@/components/ui/menubar';
 import { ChevronDown } from 'lucide-react';
 
 const PlatformSelector = () => {
+  const { data, error } = usePlatforms();
+  if (error) return null;
   return (
-    <div className='w-[7.5rem]'>
+    <div className='w-[7.5rem] my-1'>
       <Menubar>
         <MenubarMenu>
           <MenubarTrigger>
@@ -20,7 +21,11 @@ const PlatformSelector = () => {
               <ChevronDown className='h-4 w-4' />
             </div>
           </MenubarTrigger>
-          <MenubarContent></MenubarContent>
+          <MenubarContent>
+            {data.map((platform) => (
+              <MenubarItem key={platform.id}>{platform.name}</MenubarItem>
+            ))}
+          </MenubarContent>
         </MenubarMenu>
       </Menubar>
     </div>

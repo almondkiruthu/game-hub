@@ -7,28 +7,42 @@ import {
   MenubarTrigger,
 } from '@/components/ui/menubar';
 import { ChevronDown } from 'lucide-react';
+import { Platform } from '@/hooks/use-games';
 
-const PlatformSelector = () => {
+interface PlatformSelectorProps {
+  onSelectPlatform: (platform: Platform) => void;
+  selectedPlatform: Platform | null;
+}
+
+const PlatformSelector = ({
+  onSelectPlatform,
+  selectedPlatform,
+}: PlatformSelectorProps) => {
   const { data, error } = usePlatforms();
   if (error) return null;
   return (
-    <div className='w-[7.5rem] my-1'>
-      <Menubar>
+    <>
+      <Menubar className='inline-block my-1'>
         <MenubarMenu>
           <MenubarTrigger>
             <div className='flex items-center gap-x-2'>
-              <p>Platforms</p>
+              {selectedPlatform ? selectedPlatform.name : 'Platforms'}
               <ChevronDown className='h-4 w-4' />
             </div>
           </MenubarTrigger>
           <MenubarContent>
             {data.map((platform) => (
-              <MenubarItem key={platform.id}>{platform.name}</MenubarItem>
+              <MenubarItem
+                onClick={() => onSelectPlatform(platform)}
+                key={platform.id}
+              >
+                {platform.name}
+              </MenubarItem>
             ))}
           </MenubarContent>
         </MenubarMenu>
       </Menubar>
-    </div>
+    </>
   );
 };
 

@@ -22,7 +22,7 @@ const PlatformSelector = ({
   if (error) return null;
   return (
     <>
-      <Menubar className='inline-block my-1'>
+      <Menubar className='inline-block'>
         <MenubarMenu>
           <MenubarTrigger>
             <div className='flex items-center gap-x-2'>

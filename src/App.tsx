@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { Genre } from './hooks/use-genres';
 import PlatformSelector from './components/platform-selector';
 import { Platform } from './hooks/use-games';
+import SortSelector from './components/sort-selector';
 
 export interface GameQuery {
   genre: Genre | null;
@@ -29,12 +30,15 @@ const App = () => {
             />
           </div>
           <main className='h-full md:pl-60 pt-[5.5rem]'>
-            <PlatformSelector
-              onSelectPlatform={(platform) =>
-                setGameQuery({ ...gameQuery, platform })
-              }
-              selectedPlatform={gameQuery.platform}
-            />
+            <div className='flex gap-x-5 items-center pl-2'>
+              <PlatformSelector
+                onSelectPlatform={(platform) =>
+                  setGameQuery({ ...gameQuery, platform })
+                }
+                selectedPlatform={gameQuery.platform}
+              />
+              <SortSelector />
+            </div>
             <GameGrid gameQuery={gameQuery} />
             <Toaster position='bottom-right' reverseOrder={true} />
           </main>

@@ -1,7 +1,6 @@
-import useGames, { Platform } from '@/hooks/use-games.ts';
+import useGames from '@/hooks/use-games.ts';
 import GameCard from './game-card';
 import GameCardSkeleton from './game-card-skeleton';
-import { Genre } from '@/hooks/use-genres';
 import { GameQuery } from '@/App';
 
 interface GameGridProps {

@@ -5,6 +5,7 @@ import Sidebar from './components/navbarComponents/sidebar';
 import { ThemeProvider } from './components/theme-provider';
 import { useState } from 'react';
 import { Genre } from './hooks/use-genres';
+import PlatformSelector from './components/platform-selector';
 
 const App = () => {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
@@ -22,6 +23,7 @@ const App = () => {
             />
           </div>
           <main className='h-full md:pl-60 pt-[5.5rem]'>
+            <PlatformSelector />
             <GameGrid selectedGenre={selectedGenre} />
             <Toaster position='bottom-right' reverseOrder={true} />
           </main>

@@ -1,6 +1,7 @@
 import Logo from './navbarComponents/logo';
 import MobileSidebar from './navbarComponents/mobile-sidebar';
 import NavbarRoutes from './navbarComponents/navbar-routes';
+import SearchInput from './search-input';
 
 const Navbar = () => {
   return (
@@ -12,6 +13,7 @@ const Navbar = () => {
         <Logo />
       </div>
       <MobileSidebar />
+      <SearchInput />
       <NavbarRoutes />
     </div>
   );

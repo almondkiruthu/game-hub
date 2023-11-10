@@ -50,7 +50,9 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
         <MenubarMenu>
           <MenubarTrigger>
             <div className='flex items-center gap-x-2'>
-              <p>Order by {currentSortOrder?.label || 'Relevance'}</p>
+              <p className='line-clamp-1'>
+                Order by {currentSortOrder?.label || 'Relevance'}
+              </p>
               <ChevronDown className='h-4 w-4' />
             </div>
           </MenubarTrigger>

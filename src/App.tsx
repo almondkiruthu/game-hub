@@ -8,6 +8,7 @@ import { Genre } from './hooks/use-genres';
 import PlatformSelector from './components/platform-selector';
 import { Platform } from './hooks/use-games';
 import SortSelector from './components/sort-selector';
+import Gameheading from './components/game-heading';
 
 export interface GameQuery {
   genre: Genre | null;
@@ -50,6 +51,7 @@ const App = () => {
                 }
               />
             </div>
+            <Gameheading gameQuery={gameQuery} />
             <GameGrid gameQuery={gameQuery} />
             <Toaster position='bottom-right' reverseOrder={true} />
           </main>

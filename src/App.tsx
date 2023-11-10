@@ -13,6 +13,7 @@ export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
   sortOrder: string;
+  searchText: string;
 }
 
 const App = () => {
@@ -22,7 +23,11 @@ const App = () => {
       <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
         <div className='h-full font-inter'>
           <div className='inset-y-0 w-full z-[50] md:pl-56 h-[5rem] fixed'>
-            <Navbar />
+            <Navbar
+              onSearch={(searchText) =>
+                setGameQuery({ ...gameQuery, searchText })
+              }
+            />
           </div>
           <div className='flex-col hidden md:flex h-full fixed inset-y-0 z-50 w-56'>
             <Sidebar

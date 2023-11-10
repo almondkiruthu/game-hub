@@ -3,7 +3,11 @@ import MobileSidebar from './navbarComponents/mobile-sidebar';
 import NavbarRoutes from './navbarComponents/navbar-routes';
 import SearchInput from './search-input';
 
-const Navbar = () => {
+interface Props {
+  onSearch: (searchText: string) => void;
+}
+
+const Navbar = ({ onSearch }: Props) => {
   return (
     <div
       className='p-4 border-b h-full items-center
@@ -13,7 +17,7 @@ const Navbar = () => {
         <Logo />
       </div>
       <MobileSidebar />
-      <SearchInput />
+      <SearchInput onSearch={onSearch} />
       <NavbarRoutes />
     </div>
   );

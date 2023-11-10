@@ -22,6 +22,7 @@ const App = () => {
   return (
     <>
       <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
+        {/* <ScrollBar /> */}
         <div className='h-full font-inter'>
           <div className='inset-y-0 w-full z-[50] md:pl-56 h-[5rem] fixed'>
             <Navbar

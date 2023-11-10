@@ -28,7 +28,7 @@ const Sidebar = ({ onSelectGenre, selectedGenre }: SidebarProps) => {
             </p>
           </div>
           <div className='flex flex-col w-full'>
-            <h3 className='scroll-m-20 text-xl font-semibold tracking-tight my-4 p-1'>
+            <h3 className='hidden md:block scroll-m-20 text-xl font-semibold tracking-tight my-4 pl-4'>
               Genres
             </h3>
             <div className='ml-2 md:ml-2 md:mx-auto'>

@@ -2,6 +2,7 @@ import { Game } from '@/hooks/use-games';
 import PlatformIcon from './platform-icon-list';
 import CriticScore from './critic-score';
 import getCroppedImageUrl from '@/services/image-url';
+import Emoji from './emoji';
 
 interface GameCardProps {
   game: Game;
@@ -26,8 +27,9 @@ const GameCard = ({ game }: GameCardProps) => {
               <CriticScore score={game.metacritic} />
             </div>
           </div>
-          <div className='text-lg md:text-xl font-bold group-hover:text-purple-400 transition line-clamp-2 mt-4'>
+          <div className='text-lg md:text-xl font-bold flex-col items-start group-hover:text-purple-400 transition line-clamp-2 mt-4'>
             {game.name}
+            <Emoji rating={game.rating_top} />
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import Logo from './navbarComponents/logo';
+import logo from '@/assets/logo.webp';
 import MobileSidebar from './navbarComponents/mobile-sidebar';
 import NavbarRoutes from './navbarComponents/navbar-routes';
 import SearchInput from './search-input';
@@ -14,7 +14,9 @@ const Navbar = ({ onSearch }: Props) => {
   shadow-sm flex gap-x-2 bg-background'
     >
       <div className='hidden md:block mb-7'>
-        <Logo />
+        <div className='w-[4rem] h-[4rem] pt-3'>
+          <img className='' src={logo} alt='logo' />
+        </div>
       </div>
       <MobileSidebar />
       <SearchInput onSearch={onSearch} />

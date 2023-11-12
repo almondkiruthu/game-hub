@@ -46,7 +46,7 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
 
   return (
     <>
-      <Menubar className='inline-block'>
+      <Menubar>
         <MenubarMenu>
           <MenubarTrigger>
             <div className='flex items-center gap-x-2'>

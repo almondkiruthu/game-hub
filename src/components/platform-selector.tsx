@@ -1,4 +1,3 @@
-import usePlatforms from '@/hooks/use-platforms';
 import {
   Menubar,
   MenubarContent,
@@ -6,8 +5,8 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from '@/components/ui/menubar';
+import usePlatforms, { Platform } from '@/hooks/use-platforms';
 import { ChevronDown } from 'lucide-react';
-import { Platform } from '@/hooks/use-games';
 
 interface PlatformSelectorProps {
   onSelectPlatform: (platform: Platform) => void;

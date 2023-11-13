@@ -1,9 +1,9 @@
+import { Genre } from '@/hooks/use-genres';
+import { Platform } from '@/hooks/use-platforms';
 import { Menu } from 'lucide-react';
+import { useState } from 'react';
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
 import Sidebar from './sidebar';
-import { Genre } from '@/hooks/use-genres';
-import { Platform } from '@/hooks/use-games';
-import { useState } from 'react';
 
 export interface GameQuery {
   genre: Genre | null;

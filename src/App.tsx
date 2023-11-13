@@ -1,14 +1,14 @@
+import { useState } from 'react';
 import { Toaster } from 'react-hot-toast';
 import GameGrid from './components/game-grid';
+import Gameheading from './components/game-heading';
 import Navbar from './components/navbar';
 import Sidebar from './components/navbarComponents/sidebar';
-import { ThemeProvider } from './components/theme-provider';
-import { useState } from 'react';
-import { Genre } from './hooks/use-genres';
 import PlatformSelector from './components/platform-selector';
-import { Platform } from './hooks/use-games';
 import SortSelector from './components/sort-selector';
-import Gameheading from './components/game-heading';
+import { ThemeProvider } from './components/theme-provider';
+import { Genre } from './hooks/use-genres';
+import { Platform } from './hooks/use-platforms';
 
 export interface GameQuery {
   genre: Genre | null;

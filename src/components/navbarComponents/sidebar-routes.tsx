@@ -21,7 +21,7 @@ const SideBarRoutes = ({ onSelectGenre }: SideBarRoutesProps) => {
           genreSkeletons.map((Skeleton) => (
             <GenreCardSkeleton key={Skeleton} />
           ))}
-        {data.map((genre) => (
+        {data?.results.map((genre) => (
           <Button
             onClick={() => onSelectGenre(genre)}
             variant='link'

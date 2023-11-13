@@ -31,7 +31,7 @@ const PlatformSelector = ({
             </div>
           </MenubarTrigger>
           <MenubarContent>
-            {data.map((platform) => (
+            {data?.results.map((platform) => (
               <MenubarItem
                 onClick={() => onSelectPlatform(platform)}
                 key={platform.id}

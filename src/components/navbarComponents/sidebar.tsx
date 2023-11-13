@@ -1,9 +1,10 @@
-import useData, { Genre } from '@/hooks/use-genres';
+import { Genre } from '@/hooks/use-genres';
 import getCroppedImageUrl from '@/services/image-url';
 import GenreCardSkeleton from '../genre-card-skeleton';
 import { Button } from '../ui/button';
 import toast from 'react-hot-toast';
 import { cn } from '@/lib/utils';
+import useGenres from '@/hooks/use-genres';
 
 interface SidebarProps {
   onSelectGenre: (genre: Genre) => void;
@@ -11,7 +12,7 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ onSelectGenre, selectedGenre }: SidebarProps) => {
-  const { data, isLoading, error } = useData();
+  const { data, isLoading, error } = useGenres();
   const genreSkeletons = Array.from({ length: 19 }).map((_, i) => i);
 
   if (error) {
@@ -36,7 +37,7 @@ const Sidebar = ({ onSelectGenre, selectedGenre }: SidebarProps) => {
                 genreSkeletons.map((skeleton) => (
                   <GenreCardSkeleton key={skeleton} />
                 ))}
-              {data.map((genre) => (
+              {data?.results.map((genre) => (
                 <Button
                   onClick={() => onSelectGenre(genre)}
                   variant='link'

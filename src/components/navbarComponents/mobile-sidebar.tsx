@@ -1,13 +1,11 @@
-import { Genre } from '@/hooks/use-genres';
-import { Platform } from '@/hooks/use-platforms';
 import { Menu } from 'lucide-react';
 import { useState } from 'react';
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
 import Sidebar from './sidebar';
 
 export interface GameQuery {
-  genre: Genre | null;
-  platform: Platform | null;
+  genreId?: number;
+  platformId?: number;
   sortOrder: string;
   searchText: string;
 }
@@ -20,8 +18,10 @@ const MobileSidebar = () => {
       </SheetTrigger>
       <SheetContent side='left' className='p-1'>
         <Sidebar
-          selectedGenreId={gameQuery.genre}
-          onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
+          selectedGenreId={gameQuery.genreId}
+          onSelectGenre={(genre) =>
+            setGameQuery({ ...gameQuery, genreId: genre.id })
+          }
         />
       </SheetContent>
     </Sheet>

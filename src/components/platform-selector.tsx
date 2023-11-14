@@ -5,6 +5,7 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from '@/components/ui/menubar';
+import usePlatform from '@/hooks/lookup-hooks/use-platform';
 import usePlatforms, { Platform } from '@/hooks/use-platforms';
 import { ChevronDown } from 'lucide-react';
 
@@ -19,10 +20,7 @@ const PlatformSelector = ({
 }: PlatformSelectorProps) => {
   const { data, error } = usePlatforms();
 
-  const selectedPlatform = data?.results.find(
-    (p) => p.id === selectedPlatformId
-  );
-
+  const selectedPlatform = usePlatform(selectedPlatformId);
   if (error) return null;
   return (
     <>

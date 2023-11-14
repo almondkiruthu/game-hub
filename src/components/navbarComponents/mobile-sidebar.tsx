@@ -20,7 +20,7 @@ const MobileSidebar = () => {
       </SheetTrigger>
       <SheetContent side='left' className='p-1'>
         <Sidebar
-          selectedGenre={gameQuery.genre}
+          selectedGenreId={gameQuery.genre}
           onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
         />
       </SheetContent>

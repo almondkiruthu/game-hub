@@ -7,12 +7,10 @@ import Sidebar from './components/navbarComponents/sidebar';
 import PlatformSelector from './components/platform-selector';
 import SortSelector from './components/sort-selector';
 import { ThemeProvider } from './components/theme-provider';
-import { Genre } from './hooks/use-genres';
-import { Platform } from './hooks/use-platforms';
 
 export interface GameQuery {
-  genre: Genre | null;
-  platform: Platform | null;
+  genreId?: number;
+  platformId?: number;
   sortOrder: string;
   searchText: string;
 }
@@ -33,17 +31,19 @@ const App = () => {
           </div>
           <div className='flex-col hidden md:flex h-full fixed inset-y-0 z-50 w-56'>
             <Sidebar
-              selectedGenre={gameQuery.genre}
-              onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
+              selectedGenreId={gameQuery.genreId}
+              onSelectGenre={(genre) =>
+                setGameQuery({ ...gameQuery, genreId: genre.id })
+              }
             />
           </div>
           <main className='h-full md:pl-60 pt-[5.5rem]'>
             <div className='flex gap-x-5 items-center pl-2'>
               <PlatformSelector
                 onSelectPlatform={(platform) =>
-                  setGameQuery({ ...gameQuery, platform })
+                  setGameQuery({ ...gameQuery, platformId: platform.id })
                 }
-                selectedPlatform={gameQuery.platform}
+                selectedPlatformId={gameQuery.platformId}
               />
               <SortSelector
                 sortOrder={gameQuery.sortOrder}

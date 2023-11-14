@@ -8,10 +8,10 @@ import useGenres from '@/hooks/use-genres';
 
 interface SidebarProps {
   onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
 
-const Sidebar = ({ onSelectGenre, selectedGenre }: SidebarProps) => {
+const Sidebar = ({ onSelectGenre, selectedGenreId }: SidebarProps) => {
   const { data, isLoading, error } = useGenres();
   const genreSkeletons = Array.from({ length: 19 }).map((_, i) => i);
 
@@ -44,7 +44,7 @@ const Sidebar = ({ onSelectGenre, selectedGenre }: SidebarProps) => {
                   key={genre.id}
                   className={cn(
                     'flex items-center gap-x-2 mt-3 justify-between',
-                    selectedGenre?.id === genre.id
+                    selectedGenreId === genre.id
                       ? 'font-bold text-purple-400'
                       : 'font-normal'
                   )}
@@ -56,7 +56,7 @@ const Sidebar = ({ onSelectGenre, selectedGenre }: SidebarProps) => {
                   <p
                     className={cn(
                       'text-sm text-left',
-                      selectedGenre?.id === genre.id
+                      selectedGenreId === genre.id
                         ? 'font-bold text-purple-400'
                         : 'font-normal'
                     )}

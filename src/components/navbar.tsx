@@ -3,24 +3,20 @@ import MobileSidebar from './navbarComponents/mobile-sidebar';
 import NavbarRoutes from './navbarComponents/navbar-routes';
 import SearchInput from './search-input';
 
-interface Props {
-  onSearch: (searchText: string) => void;
-}
-
-const Navbar = ({ onSearch }: Props) => {
+const Navbar = () => {
   return (
     <div
-      className='p-4 border-b h-full items-center
+      className="p-4 border-b h-full items-center
   shadow-sm flex gap-x-2 bg-background/95 z-50 backdrop-blur supports-[backdrop-filter]:bg-background/60
-  top-0 sticky'
+  top-0 sticky"
     >
-      <div className='hidden md:block mb-7'>
-        <div className='w-[4rem] h-[4rem] pt-3'>
-          <img className='' src={logo} alt='logo' />
+      <div className="hidden md:block mb-7">
+        <div className="w-[4rem] h-[4rem] pt-3">
+          <img className="" src={logo} alt="logo" />
         </div>
       </div>
       <MobileSidebar />
-      <SearchInput onSearch={onSearch} />
+      <SearchInput />
       <NavbarRoutes />
     </div>
   );

@@ -5,14 +5,12 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from '@/components/ui/menubar';
+import useGameQueryStore from '@/store';
 import { ChevronDown } from 'lucide-react';
 
-interface Props {
-  onSelectSortOrder: (order: string) => void;
-  sortOrder: string;
-}
-
-const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
+const SortSelector = () => {
+  const selectedSortOrder = useGameQueryStore((s) => s.gameQuery.sortOrder);
+  const setSelectedSortOrder = useGameQueryStore((s) => s.setSortOrder);
   const sortOrders = [
     {
       value: '',
@@ -41,7 +39,7 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
   ];
 
   const currentSortOrder = sortOrders.find(
-    (order) => order.value === sortOrder
+    (order) => order.value === selectedSortOrder
   );
 
   return (
@@ -49,17 +47,17 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
       <Menubar>
         <MenubarMenu>
           <MenubarTrigger>
-            <div className='flex items-center gap-x-2'>
-              <p className='line-clamp-1'>
+            <div className="flex items-center gap-x-2">
+              <p className="line-clamp-1">
                 Order by {currentSortOrder?.label || 'Relevance'}
               </p>
-              <ChevronDown className='h-4 w-4' />
+              <ChevronDown className="h-4 w-4" />
             </div>
           </MenubarTrigger>
           <MenubarContent>
             {sortOrders.map((order) => (
               <MenubarItem
-                onClick={() => onSelectSortOrder(order.value)}
+                onClick={() => setSelectedSortOrder(order.value)}
                 key={order.value}
               >
                 {order.label}

@@ -6,36 +6,34 @@ import {
   MenubarTrigger,
 } from '@/components/ui/menubar';
 import usePlatform from '@/hooks/lookup-hooks/use-platform';
-import usePlatforms, { Platform } from '@/hooks/use-platforms';
+import usePlatforms from '@/hooks/use-platforms';
+import useGameQueryStore from '@/store';
 import { ChevronDown } from 'lucide-react';
 
-interface PlatformSelectorProps {
-  onSelectPlatform: (platform: Platform) => void;
-  selectedPlatformId?: number;
-}
-
-const PlatformSelector = ({
-  onSelectPlatform,
-  selectedPlatformId,
-}: PlatformSelectorProps) => {
+const PlatformSelector = () => {
   const { data, error } = usePlatforms();
 
+  const selectedPlatformId = useGameQueryStore((s) => s.gameQuery.platformId);
   const selectedPlatform = usePlatform(selectedPlatformId);
+
+  const setSelectedPlatformId = useGameQueryStore((s) => s.setPlatformId);
+
   if (error) return null;
+
   return (
     <>
       <Menubar>
         <MenubarMenu>
           <MenubarTrigger>
-            <div className='flex items-center gap-x-2'>
+            <div className="flex items-center gap-x-2">
               {selectedPlatform ? selectedPlatform.name : 'Platforms'}
-              <ChevronDown className='h-4 w-4' />
+              <ChevronDown className="h-4 w-4" />
             </div>
           </MenubarTrigger>
           <MenubarContent>
             {data?.results.map((platform) => (
               <MenubarItem
-                onClick={() => onSelectPlatform(platform)}
+                onClick={() => setSelectedPlatformId(platform.id)}
                 key={platform.id}
               >
                 {platform.name}
